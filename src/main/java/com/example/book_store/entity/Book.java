@@ -15,5 +15,7 @@ public class Book {
     private List<Image> imageList;
     private List<Evaluate> evaluateList;
     private List<CartDetails> cartList;
+    private List<OrderDetails> orderList;
+    private List<FavouriteBooks> favouriteBookList;
 
 }

@@ -1,10 +1,10 @@
 package com.example.book_store.entity;
 
-public class CartDetails {
-    private long cartDetailsId;
+public class OrderDetails {
+    private long orderDetailsId;
     private Book book;
     private int bookQuantity;
     private int bookPrice;
-    private Cart cart;
+    private Orders orders;
 
 }
