@@ -1,7 +1,13 @@
 package com.example.book_store.entity;
 
-import java.util.List;
+import lombok.*;
 
+import java.util.List;
+@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Category {
     private int categoryId;
     private String categoryName;

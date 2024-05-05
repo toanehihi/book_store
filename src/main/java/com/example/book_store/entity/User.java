@@ -1,6 +1,13 @@
 package com.example.book_store.entity;
 
+import lombok.*;
+
 import java.util.List;
+@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     private int userId;
     private String name;
@@ -13,7 +20,7 @@ public class User {
     private List<Evaluate> evaluateList;
     private List<FavouriteBooks> favouriteBookList;
     private List<Role> role;
-    private List<Cart> userCart;
     private List<Orders> userOrders;
+
 
 }
