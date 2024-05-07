@@ -39,15 +39,32 @@ public class Book {
             CascadeType.DETACH, CascadeType.REFRESH
     })
     @JoinTable(
-            name="book_categorylist",
+            name="book_category",
             joinColumns = @JoinColumn(name="book_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
     private List<Category> categoryList;
-
+    @OneToMany(
+            mappedBy = "book",fetch = FetchType.LAZY,cascade = { CascadeType.ALL
+    }
+    )
     private List<Image> imageList;
+    @OneToMany(
+            mappedBy = "book",fetch = FetchType.LAZY,cascade = { CascadeType.ALL
+    }
+    )
     private List<Evaluate> evaluateList;
+    @OneToMany(
+            mappedBy = "book",fetch = FetchType.LAZY,cascade = {
+            CascadeType.PERSIST,CascadeType.MERGE,
+            CascadeType.DETACH,CascadeType.REFRESH
+    }
+    )
     private List<OrderDetails> orderList;
+    @OneToMany(
+            mappedBy = "book",fetch = FetchType.LAZY,cascade = {CascadeType.ALL
+    }
+    )
     private List<FavouriteBooks> favouriteBookList;
 
 }
