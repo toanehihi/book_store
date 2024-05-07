@@ -10,6 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name="category")
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,5 +27,5 @@ public class Category {
             joinColumns = @JoinColumn(name="category_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id")
     )
-    private List<Book> listBook;
+    private List<Book> book;
 }

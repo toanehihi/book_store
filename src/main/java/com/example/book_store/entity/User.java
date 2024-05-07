@@ -3,6 +3,7 @@ package com.example.book_store.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.util.Lazy;
 
 import java.util.List;
 @Data
@@ -31,9 +32,26 @@ public class User {
     private String PhoneNumber;
     @Column(name="address")
     private String Address;
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,cascade = {
+            CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH
+    })
     private List<Evaluate> evaluateList;
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,cascade = {
+            CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH
+    })
     private List<FavouriteBooks> favouriteBookList;
+    @ManyToMany(fetch = FetchType.LAZY,cascade = {
+            CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH
+    })
+    @JoinTable(
+            name="user_role",
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name="role_id")
+    )
     private List<Role> role;
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,cascade = {
+            CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH
+    })
     private List<Orders> userOrders;
 
 

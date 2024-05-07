@@ -25,6 +25,11 @@ public class Evaluate {
     })
     @JoinColumn(name="book_id",nullable = false)
     private Book book;
+    @ManyToOne(cascade = {
+            CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH
+    })
+    @JoinColumn(name="user_id",nullable = false)
     private User user;
 
 }

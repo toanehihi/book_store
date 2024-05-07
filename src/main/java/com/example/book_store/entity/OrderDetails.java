@@ -25,6 +25,11 @@ public class OrderDetails {
     })
     @JoinColumn(name="book_id",nullable = false)
     private Book book;
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {
+            CascadeType.PERSIST, CascadeType.MERGE,
+            CascadeType.DETACH, CascadeType.REFRESH
+    })
+    @JoinColumn(name="order_id",nullable = false)
     private Orders orders;
 
 }
