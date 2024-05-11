@@ -30,13 +30,16 @@ public class User {
     @Column(name="address")
     private String address;
 
+    @Column(name="role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY,cascade = {
             CascadeType.ALL
     })
     private List<FavouriteBooks> favouriteBooks;
-    @Column(name="role")
-    @Enumerated(EnumType.STRING)
-    private Role role;
+
     @OneToMany(mappedBy = "user",fetch = FetchType.EAGER,cascade = {
             CascadeType.MERGE,
             CascadeType.PERSIST,

@@ -19,13 +19,19 @@ public class FavouriteBooks {
     @GenericGenerator(name = "uuid2", strategy = "uuid2")
     @Column(columnDefinition = "BINARY(16)")
     private UUID id;
-    @ManyToOne(cascade = {
+
+
+    @ManyToOne(fetch = FetchType.LAZY,cascade = {
             CascadeType.MERGE,
             CascadeType.DETACH,
-            CascadeType.PERSIST
+            CascadeType.PERSIST,
+            CascadeType.REFRESH
     })
     @JoinColumn(name="book_id")
     private Book book;
+
+
+
     @ManyToOne(fetch = FetchType.EAGER,cascade = {
             CascadeType.MERGE,
             CascadeType.DETACH,

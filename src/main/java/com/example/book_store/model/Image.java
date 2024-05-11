@@ -19,14 +19,8 @@ public class Image {
     @Column(columnDefinition = "BINARY(16)")
     private UUID id;
 
-    @Column(name="icon")
-    private boolean icon;
-
     @Column(name="url")
     private String url;
-
-    @Column(name="data")
-    private String data;
 
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = {

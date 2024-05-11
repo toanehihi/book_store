@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name="order")
+@Table(name="orders")
 public class Order {
     @Id
     @GeneratedValue(generator = "uuid2")
@@ -21,12 +21,8 @@ public class Order {
     private Date dateCreate;
     @Column(name="address")
     private String address;
-    @Column(name="transport_cost")
-    private double transportCost;
-    @Column(name="order_cost")
-    private double orderCost;
-    @Column(name="total")
-    private double total;
+    @Column(name="price")
+    private double price;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade = {
             CascadeType.MERGE,
@@ -49,7 +45,7 @@ public class Order {
     })
     @JoinColumn(name="delivery_id")
     private Delivery delivery;
-    @OneToMany(mappedBy = "order",fetch = FetchType.LAZY,cascade = {
+    @OneToMany(mappedBy = "orders",fetch = FetchType.LAZY,cascade = {
             CascadeType.MERGE,
             CascadeType.DETACH,
             CascadeType.REFRESH,

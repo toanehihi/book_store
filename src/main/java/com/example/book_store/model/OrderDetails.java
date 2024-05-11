@@ -23,7 +23,7 @@ public class OrderDetails {
     @Column(name="quantity")
     private int quantity;
     @Column(name="price")
-    private int price;
+    private double price;
     
     @ManyToOne(fetch = FetchType.LAZY,cascade = {
             CascadeType.MERGE,
@@ -39,6 +39,6 @@ public class OrderDetails {
             CascadeType.PERSIST
     } )
     @JoinColumn(name="order_id")
-    private Order order;
+    private Order orders;
 
 }
